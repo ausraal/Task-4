@@ -16,22 +16,22 @@ window.addEventListener("load", () => {
     .catch (error => console.log(error)); 
     
     function outputData (data) {
-        // let outputCard = " ";
             data.forEach (car => {
             car => car.models.split(", ");
             console.log(car);
             let allCar = car.models.join(", ");          
             let outputCard = document.createElement("div");
             let outputCardText = document.createElement("p");
-            outputCard.style.width = "350px";
-            outputCard.style.height = "300px";
-            outputCard.style.display = "inline-flex";
-            outputCard.style.margin = "2px";
-            outputCard.style.whiteSpace = "pre-wrap";
-            outputCard.style.textAlign = "left";
+            Object.assign (outputCard.style, {
+            width:"350px",
+            height:"300px",
+            display: "inline-flex",
+            margin: "2px",
+            whiteSpace: "pre-wrap",
+            textAlign:"left",
+            backgroundColor: "lightblue"    
+            })
             outputCardText.style.padding = "10px";
-
-            outputCard.style.backgroundColor = "lightblue";
             outputCardText.textContent = `Brand: "${car.brand}".
 Models: ${allCar}`;
             let output = document.querySelector("#output");
